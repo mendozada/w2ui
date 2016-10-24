@@ -108,7 +108,7 @@ class w2grid_class {
         // count records
         $rs = $db->execute($cql);
         $data['status'] = 'success';
-        $data['total']  = $rs->fields[0];
+        $data['total']  = $db->res_rowCount;
 
         // execute sql
             $rs = $db->execute($sql);
