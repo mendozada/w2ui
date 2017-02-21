@@ -18,7 +18,8 @@ switch ($_REQUEST['cmd']) {
         else{        
             $sql  = "SELECT * FROM users       
                      WHERE ~search~ ORDER BY ~sort~";
-            $res = $w2grid->getRecords($sql, null, $_REQUEST);
+            $loquesea =  array(2 => "background-color: #CEECF5; font-weight: bold;"); // background color only column 2
+            $res = $w2grid->getRecords($sql, null, $_REQUEST, $loquesea); //add row style o null
         }  
          $w2grid->outputJSON($res);
         break;
