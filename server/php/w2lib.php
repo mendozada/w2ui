@@ -14,7 +14,7 @@ class w2grid_class {
     public function __construct() {}
     public function __destruct() {}
 
-    public function getRecords($sql, $cql, $request) {
+    public function getRecords($sql, $cql, $request, $w2style) {
         global $db, $dbType;
 
         // prepare search
@@ -130,6 +130,9 @@ class w2grid_class {
             foreach ($rs->fields as $k => $v) {
                 if (intval($k) > 0 || $k == "0") continue;
                 $data['records'][$len][$k] = $v;
+            }
+            if (!$w2style == null || !$w2style == "") {
+                  $data['records'][$len]['w2ui']['style'] = $w2style;
             }
             $len++;
             $rs->moveNext();
